@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "调试 Server",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/Server.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "gdb.exe",
+        "setupCommands": [
+          { "text": "-enable-pretty-printing" }
+        ],
+        "preLaunchTask": "编译 Server"
+      },
+      {
+        "name": "调试 Client",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/Client.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "gdb.exe",
+        "preLaunchTask": "编译 Client"
+      }
+    ]
+  }

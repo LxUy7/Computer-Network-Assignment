@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "编译 Server",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-g", "Server.cpp", "-o", "Server.exe",
+          "-lws2_32"   // Windows 必须加，链接 socket 库
+        ],
+        "group": "build",
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "编译 Client",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-g", "Client.cpp", "-o", "Client.exe",
+          "-lws2_32"
+        ],
+        "group": "build",
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "运行 Server",
+        "type": "shell",
+        "command": ".\\Server.exe",
+        "dependsOn": "编译 Server",
+        "group": "test",
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        }
+      },
+      {
+        "label": "运行 Client",
+        "type": "shell",
+        "command": ".\\Client.exe",
+        "dependsOn": "编译 Client",
+        "group": "test",
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        }
+      },
+      {
+        "label": "【一键运行】Server + Client",
+        "dependsOrder": "sequence",   // 先 Server 再 Client
+        "dependsOn": ["运行 Server", "运行 Client"],
+        "problemMatcher": []
+      }
+    ]
+  }
